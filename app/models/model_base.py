@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import Column, Integer, DateTime
+from sqlalchemy import Column, Integer, DateTime, String
 from sqlalchemy.ext.declarative import as_declarative, declared_attr
 
 
@@ -19,5 +19,7 @@ class BareBaseModel(Base):
     __abstract__ = True
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    created_at = Column(DateTime, default=datetime.now)
-    updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
+    created_date = Column(DateTime, default=datetime.now)
+    created_by = Column(String)
+    deleted_date = Column(DateTime, default=datetime.now)
+    deleted_by = Column(String)
