@@ -19,7 +19,7 @@ class BareBaseModel(Base):
     __abstract__ = True
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    created_date = Column(DateTime, default=datetime.now)
-    created_by = Column(String)
+    updated_date = Column(DateTime, default=datetime.now)
+    updated_by = Column(String(100), index=True)
     deleted_date = Column(DateTime, default=datetime.now)
-    deleted_by = Column(String)
+    deleted_by = Column(String(100), index=True)

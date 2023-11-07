@@ -11,7 +11,7 @@ logger = logging.getLogger()
 router = APIRouter()
 
 
-@router.get("")
+@router.get("/test")
 def get(params: PaginationParams = Depends()) -> Any:
     """
     API Get list User

@@ -3,7 +3,7 @@ from sqlalchemy import Column, String, Boolean, DateTime, Integer
 
 
 class User(BareBaseModel):
-    username = Column(String, index=True)
+    username = Column(String(255), index=True)
     password = Column(String(255))
-    email = Column(String, unique=True, index=True)
+    email = Column(String(255), unique=True, index=True)
 
