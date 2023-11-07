@@ -21,3 +21,11 @@ def get(params: PaginationParams = Depends()) -> Any:
     """
     data = get_category(params)
     return data
+
+
+def post(params: PaginationParams = Depends()) -> Any:
+    """
+    API Get list Category
+    """
+    data = get_category(params)
+    return data

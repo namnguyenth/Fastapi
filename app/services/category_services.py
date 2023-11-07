@@ -1,3 +1,5 @@
+import datetime
+
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi_sqlalchemy import db
 
@@ -21,5 +23,18 @@ def create_category(params):
     if category:
         raise CustomException(http_code=400, code='400', message="Category is already exist")
 
-    data = paginate(model=Category, query=_query, params=params)
-    return data
+    new_category = Category(
+        title=title,
+        priority=priority,
+        updated_date=datetime.now,
+        updated_by="admin"
+    )
+    db.session.add(new_category)
+    db.session.commit()
+
+    return {
+        "title": title,
+        "priority": priority,
+        "updated_date": datetime.now,
+        "updated_by": "admin"
+    }
