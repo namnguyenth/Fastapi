@@ -21,5 +21,5 @@ class BareBaseModel(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     updated_date = Column(DateTime, default=datetime.now)
     updated_by = Column(String(100), index=True)
-    deleted_date = Column(DateTime, default=datetime.now)
+    deleted_date = Column(DateTime)
     deleted_by = Column(String(100), index=True)
